@@ -1,0 +1,47 @@
+@import './_settings/variables.scss';
+@import './_settings/reset.scss';
+@import './_settings/mixins.scss';
+@import './_settings/base.scss';
+
+.App {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 1fr 1fr 0.5fr;
+  grid-template-columns: 15% 85%;
+
+
+  &__colors {
+    display: grid;
+    grid-area: 1 / 2 / span 5;
+  }
+
+  &__inputs {
+    display: grid;
+    grid-area: 3;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+
+.colorGrid {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 0.5fr;
+    grid-area: 1;
+}
+
+.color1 {
+    grid-area: 3 / 2 / 3 / span 3;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 2rem;
+}
+
+.color2 {
+    grid-area: 2 / 3 / span 3 / 3;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 2rem;
+}
