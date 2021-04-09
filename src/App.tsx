@@ -56,9 +56,9 @@ function App() {
           </>
           :
           <>
-            <SketchPicker color={bgColor} onChangeComplete={newColor => setBgColor(newColor.hex)} />
-            <SketchPicker color={colorX} onChangeComplete={newColor => setColorX(newColor.hex)} />
-            <SketchPicker color={colorY} onChangeComplete={newColor => setColorY(newColor.hex)} />
+            <SketchPicker color={bgColor} onChange={newColor => setBgColor(newColor.hex)} />
+            <SketchPicker color={colorX} onChange={newColor => setColorX(newColor.hex)} />
+            <SketchPicker color={colorY} onChange={newColor => setColorY(newColor.hex)} />
           </>
         }
       </div>
