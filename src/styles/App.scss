@@ -32,10 +32,10 @@
     grid-area: 3 / 2 / 2 / span 2;
 
     @include media(phone) {
-      grid-template-rows: auto 130px;
+      grid-template-rows: 130px auto;
       grid-template-columns: repeat(3, 1fr);
       grid-area: 2 / 2;
-      padding-top: 5px;
+      padding-top: 20px;
     }
   }
 }
