@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ChromePicker, MaterialPicker } from 'react-color';
+import React, { useEffect, useState } from 'react';
+import { MaterialPicker, SketchPicker } from 'react-color';
 import './styles/App.scss';
 
 function App() {
@@ -56,9 +56,9 @@ function App() {
           </>
           :
           <>
-            <ChromePicker color={bgColor} onChangeComplete={newColor => setBgColor(newColor.hex)} />
-            <ChromePicker color={colorX} onChangeComplete={newColor => setColorX(newColor.hex)} />
-            <ChromePicker color={colorY} onChangeComplete={newColor => setColorY(newColor.hex)} />
+            <SketchPicker color={bgColor} onChangeComplete={newColor => setBgColor(newColor.hex)} />
+            <SketchPicker color={colorX} onChangeComplete={newColor => setColorX(newColor.hex)} />
+            <SketchPicker color={colorY} onChangeComplete={newColor => setColorY(newColor.hex)} />
           </>
         }
       </div>
