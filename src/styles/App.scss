@@ -34,8 +34,9 @@
     @include media(phone) {
       grid-template-rows: 130px auto;
       grid-template-columns: repeat(3, 1fr);
-      grid-area: 2 / 2;
+      grid-area: 2 / span 3;
       padding-top: 20px;
+      justify-items: center;
     }
   }
 }
