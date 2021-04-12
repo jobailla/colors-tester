@@ -14,51 +14,48 @@ function App() {
     return () => window.removeEventListener('resize', updateMedia);
   });
 
-  const [bgColor, setBgColor] = useState("#FFFFFF");
-  const [colorX, setColorX] = useState("#191645");
-  const [colorY, setColorY] = useState("#43C6AC");
+  const [zIndex, setZindex] = useState({ x: 0, y: 1 })
+  const [colors, setColors] = useState({ background: "#FFFFFF", x: "#191645", y: "#43C9AC" })
 
-  const [zIndexX, setZindeX] = useState(0) 
-  const [zIndexY, setZindeY] = useState(1) 
+  let style = {
+    background: {
+      backgroundColor: colors.background
+    },
+    x: {
+      backgroundColor: colors.x,
+      zIndex: zIndex.x
 
-  let styleBg = {
-    backgroundColor: bgColor
-  };
-
-  const styleX = {
-    backgroundColor: colorX,
-    zIndex: zIndexX
-  }
-  const styleY = {
-    backgroundColor: colorY,
-    zIndex: zIndexY 
+    },
+    y: {
+      backgroundColor: colors.y,
+      zIndex: zIndex.y
+    }
   }
 
   const handleZindex = () => {
-    setZindeX(zIndexX === 0 ? 1 : 0)
-    setZindeY(zIndexY === 0 ? 1 : 0)
+    setZindex({ ...zIndex, x: zIndex.x ^= 1, y: zIndex.y ^= 1 })
   }
 
   return (
     <div className="App">
       <div className="App__colors">
-        <div className="colorGrid" style={styleBg} >
-          <div className="color1" style={styleX} onClick={() => handleZindex()}/>
-          <div className="color2" style={styleY} onClick={() => handleZindex()}/>
+        <div className="colorGrid" style={style.background} >
+          <div className="color1" style={style.x} onClick={() => handleZindex()} />
+          <div className="color2" style={style.y} onClick={() => handleZindex()} />
         </div>
       </div>
       <div className="App__inputs">
         {isMobile ?
           <>
-            <MaterialPicker color={bgColor} onChangeComplete={newColor => setBgColor(newColor.hex)} />
-            <MaterialPicker color={colorX} onChangeComplete={newColor => setColorX(newColor.hex)} />
-            <MaterialPicker color={colorY} onChangeComplete={newColor => setColorY(newColor.hex)} />
+            <MaterialPicker color={colors.background} onChange={newColor => setColors({ ...colors, background: newColor.hex })} />
+            <MaterialPicker color={colors.x} onChange={newColor => setColors({ ...colors, x: newColor.hex })} />
+            <MaterialPicker color={colors.y} onChange={newColor => setColors({ ...colors, y: newColor.hex })} />
           </>
           :
           <>
-            <SketchPicker color={bgColor} onChange={newColor => setBgColor(newColor.hex)} />
-            <SketchPicker color={colorX} onChange={newColor => setColorX(newColor.hex)} />
-            <SketchPicker color={colorY} onChange={newColor => setColorY(newColor.hex)} />
+            <SketchPicker color={colors.background} onChange={newColor => setColors({ ...colors, background: newColor.hex })} />
+            <SketchPicker color={colors.x} onChange={newColor => setColors({ ...colors, x: newColor.hex })} />
+            <SketchPicker color={colors.y} onChange={newColor => setColors({ ...colors, y: newColor.hex })} />
           </>
         }
       </div>
